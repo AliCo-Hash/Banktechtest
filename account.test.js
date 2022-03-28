@@ -12,7 +12,13 @@ describe('Account', () => {
   })
 
   it('can deposit money', () => {
-    account.deposit(500)
-    expect(account.balance).toBe(500)
+    account.deposit(500.00)
+    expect(account.balance).toBe(500.00)
+  })
+
+  it('can withdraw money', () => {
+    account.deposit(500.00)
+    account.withdraw(300.00)
+    expect(account.balance).toBe(200.00)
   })
 })
