@@ -36,4 +36,10 @@ describe("Account", () => {
       )} || 1000.00 || || 1000.00`
     );
   });
+
+  it("throws an error if given amount is not a number", () => {
+    expect(() => account.deposit("aafs-$%!")).toThrow(
+      "Please enter a valid number"
+    );
+  });
 });
