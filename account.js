@@ -7,21 +7,13 @@ class Account {
   deposit(amount) {
     this.amountChecker(amount);
     this.balance += amount;
-    this.transactions.push(
-      `${new Date().toLocaleDateString("en-GB")} || ${amount.toFixed(
-        2
-      )} || || ${this.balance.toFixed(2)}`
-    );
+    this.depositHistory(amount);
   }
 
   withdraw(amount) {
     this.amountChecker(amount);
     this.balance -= amount;
-    this.transactions.push(
-      `${new Date().toLocaleDateString("en-GB")} || || ${amount.toFixed(
-        2
-      )} || ${this.balance.toFixed(2)}`
-    );
+    this.withdrawHistory(amount);
   }
 
   get statement() {
@@ -38,6 +30,22 @@ class Account {
     if (typeof amount != "number" || amount <= 0) {
       throw "Invalid amount, please enter a valid number";
     }
+  }
+
+  depositHistory(amount) {
+    this.transactions.push(
+      `${new Date().toLocaleDateString("en-GB")} || ${amount.toFixed(
+        2
+      )} || || ${this.balance.toFixed(2)}`
+    );
+  }
+
+  withdrawHistory(amount) {
+    this.transactions.push(
+      `${new Date().toLocaleDateString("en-GB")} || || ${amount.toFixed(
+        2
+      )} || ${this.balance.toFixed(2)}`
+    );
   }
 }
 
