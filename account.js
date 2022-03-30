@@ -5,8 +5,8 @@ class Account {
   }
 
   deposit(amount) {
-    if (typeof amount != "number") {
-      throw "Please enter a valid number";
+    if (typeof amount != "number" || amount <= 0) {
+      throw "Invalid amount, please enter a valid number";
     } else {
       this.balance += amount;
       this.transactions.push(
@@ -18,8 +18,8 @@ class Account {
   }
 
   withdraw(amount) {
-    if (typeof amount != "number") {
-      throw "Please enter a valid number";
+    if (typeof amount != "number" || amount <= 0) {
+      throw "Invalid amount, please enter a valid number";
     } else {
       this.balance -= amount;
       this.transactions.push(
