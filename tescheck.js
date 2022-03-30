@@ -6,3 +6,9 @@ account.deposit(2000.0);
 account.withdraw(500.0);
 
 account.printStatement;
+
+console.log(" ");
+console.log(" ");
+console.log(" ");
+
+account.deposit(-120);
