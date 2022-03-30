@@ -18,12 +18,16 @@ class Account {
   }
 
   withdraw(amount) {
-    this.balance -= amount;
-    this.transactions.push(
-      `${new Date().toLocaleDateString("en-GB")} || || ${amount.toFixed(
-        2
-      )} || ${this.balance.toFixed(2)}`
-    );
+    if (typeof amount != "number") {
+      throw "Please enter a valid number";
+    } else {
+      this.balance -= amount;
+      this.transactions.push(
+        `${new Date().toLocaleDateString("en-GB")} || || ${amount.toFixed(
+          2
+        )} || ${this.balance.toFixed(2)}`
+      );
+    }
   }
 
   get statement() {
