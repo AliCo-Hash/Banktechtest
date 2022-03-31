@@ -53,14 +53,8 @@ describe("Account", () => {
     ]);
   });
 
-  it("throws an error if given deposit is not a number", () => {
-    expect(() => account.deposit("aafs-$%!")).toThrow(
-      "Invalid amount, please enter a valid number"
-    );
-  });
-
-  it("throws an error if given withdrawal is not a number", () => {
-    expect(() => account.withdraw("aafs-$%!")).toThrow(
+  it("throws an error if given amount is not a number", () => {
+    expect(() => account.amountChecker("aafs-$%!")).toThrow(
       "Invalid amount, please enter a valid number"
     );
   });
