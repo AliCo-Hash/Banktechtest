@@ -11,4 +11,4 @@ console.log(" ");
 console.log(" ");
 console.log(" ");
 
-account.deposit(-120);
+console.log(account.transactions);

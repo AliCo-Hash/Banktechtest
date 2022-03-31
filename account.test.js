@@ -37,6 +37,22 @@ describe("Account", () => {
     );
   });
 
+  it("saves depositHistory", () => {
+    account.deposit(1000.0);
+    expect(account.transactions).toEqual([
+      `${new Date().toLocaleDateString("en-GB")} || 1000.00 || || 1000.00`,
+    ]);
+  });
+
+  it("saves withdrawHistory", () => {
+    account.deposit(1000.0);
+    account.withdraw(500.0);
+    expect(account.transactions).toEqual([
+      `${new Date().toLocaleDateString("en-GB")} || 1000.00 || || 1000.00`,
+      `${new Date().toLocaleDateString("en-GB")} || || 500.00 || 500.00`,
+    ]);
+  });
+
   it("throws an error if given deposit is not a number", () => {
     expect(() => account.deposit("aafs-$%!")).toThrow(
       "Invalid amount, please enter a valid number"
