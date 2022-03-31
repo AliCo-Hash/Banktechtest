@@ -65,14 +65,8 @@ describe("Account", () => {
     );
   });
 
-  it("throws an error if given deposit is <= 0", () => {
-    expect(() => account.deposit(-120)).toThrow(
-      "Invalid amount, please enter a valid number"
-    );
-  });
-
-  it("throws an error if given withdrawal is <= 0", () => {
-    expect(() => account.withdraw(-120)).toThrow(
+  it("checks if entered amount is a number >", () => {
+    expect(() => account.amountChecker(-120)).toThrow(
       "Invalid amount, please enter a valid number"
     );
   });
